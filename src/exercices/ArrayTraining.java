@@ -143,15 +143,12 @@ public class ArrayTraining {
      */
     public boolean equals(int[] first, int[] second) {
 
-        boolean test = true;
-        int length = first.length;
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < first.length; i++) {
             if (first[i] == second[i]) {
-            } else {
-                test = false;
+                return true;
             }
         }
-        return test;
+        return false;
     }
 
     /**
@@ -176,16 +173,17 @@ public class ArrayTraining {
      */
     public int[] concat(int[] first, int[] second) {
 
-        int length1 = first.length;
-        int length2 = second.length;
-        int length3 = length1 + length2;
-        int [] newArray = new int[length3];
-        for (int i = 0; i < length1; i++) {
-            newArray[i]= first[i];
+        int []arrayConcat = new int[first.length+second.length];
+
+        for (int i = 0;i < first.length;i++){
+            arrayConcat[i] = first[i];
         }
-        for (int i = length1 + 1; i < length3; i++) {
-            newArray[i]= second[i];
+
+        for (int i = first.length;i < arrayConcat.length;i++){
+            arrayConcat[i] = second[i-first.length];
+
         }
-        return newArray;
+
+        return arrayConcat;
     }
 }
